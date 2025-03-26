@@ -1,5 +1,9 @@
 import axios from 'axios';
 
+interface PromptRequest {
+    prompt: string;
+}
+
 interface ChatResponse {
     message: string;
     timestamp: string;
@@ -8,16 +12,16 @@ interface ChatResponse {
 export const sendMessage = async (message: string): Promise<ChatResponse> => {
     try {
         const response = await axios.post('https://4x8xmit1d3.execute-api.us-east-1.amazonaws.com/prod/interviewAssist',
-            { message },
+            { prompt: message },
             {
                 headers: {
                     'Content-Type': 'application/json',
                 },
             }
         );
-        console.log('Response from API:', response.data);
+        console.log('Response from API:', response.data.response);
         return {
-            message: response.data,
+            message: response.data.response,
             timestamp: new Date().toISOString()
         };
     } catch (error) {
