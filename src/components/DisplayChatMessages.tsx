@@ -2,6 +2,7 @@ import * as React from "react";
 import { ChatBubble } from "@cloudscape-design/chat-components";
 import { Avatar } from "@cloudscape-design/chat-components";
 import { SpaceBetween } from "@cloudscape-design/components";
+import ReactMarkdown from "react-markdown";
 
 export interface ChatMessageProps {
   message: string;
@@ -42,7 +43,7 @@ export default function DisplayChatMessage(props: DisplayChatMessageProps) {
             type={isBot ? 'incoming' : 'outgoing'}
             avatar={avatar}
           >
-            {chatMessage.message}
+            <ReactMarkdown>{chatMessage.message}</ReactMarkdown>
           </ChatBubble>
         );
       })}

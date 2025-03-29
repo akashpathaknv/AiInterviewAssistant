@@ -7,7 +7,7 @@ import { SpaceBetween } from '@cloudscape-design/components';
 
 function App() {
   const [chatMessages, setChatMessages] = useState<ChatMessageProps[]>([
-    { message: 'Hello, how can I help you today?', timestamp: new Date().toISOString(), sender: 'BOT' }]);
+    { message: "Welcome! Please provide your job role and a short description, and I'll generate a study plan to help you ace your interview.", timestamp: new Date().toISOString(), sender: 'BOT' }]);
 
 
   return (
